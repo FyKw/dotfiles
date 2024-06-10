@@ -1,9 +1,9 @@
-
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: let
+    username = "nixos";
+in {
 imports = [
   ./vpn.nix
+  ./docker.nix
 ];
 wsl = {
         enable = true;
@@ -21,7 +21,7 @@ wsl = {
 	"8.8.8.8"
 	"1.1.1.1"
 ];
-  home-manager.users.nixos = {
+  home-manager.users.${username} = {
         imports = [
             ./home.nix
         ];
@@ -38,10 +38,16 @@ nix = {
     '';
 };
 
+users.users.${username} = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker" ];
+};
+
 services.openssh.enable = true;
 environment.shellAliases = {
       flake-rebuild = "sudo nixos-rebuild switch --flake .#NixWsl";
     };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -49,5 +55,5 @@ environment.shellAliases = {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
