@@ -16,6 +16,9 @@
     outputs = inputs@{ self, nixpkgs, nixos-wsl, ... }: {
         nixosConfigurations = {
             NixWsl = nixpkgs.lib.nixosSystem {
+		specialArgs = {
+		    username = "nixos";
+		};
                 system = "x86_64-linux";
                 modules = [
                     ./configuration.nix

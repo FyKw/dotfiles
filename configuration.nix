@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }: let
-    username = "nixos";
+{ config, lib, pkgs, username, ... }: let
 in {
 imports = [
   ./vpn.nix
   ./docker.nix
+  ./neovim
 ];
 wsl = {
         enable = true;
@@ -29,7 +29,12 @@ wsl = {
 
   boot.tmp.cleanOnBoot = true;
   environment.systemPackages = with pkgs; [
-  git neovim
+  git
+  neovim
+  unzip
+  gnumake
+  gcc
+  ripgrep
 ];
 nix = {
     package = pkgs.nixFlakes;
