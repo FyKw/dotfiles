@@ -25,6 +25,7 @@ wsl = {
         imports = [
             ./home.nix
         ];
+        home.sessionVariables.SHELL = "etc/profiles/per-user/${username}/bin/fish";
     };
 
   boot.tmp.cleanOnBoot = true;
@@ -35,6 +36,7 @@ wsl = {
   gnumake
   gcc
   ripgrep
+  asciiquarium-transparent
 ];
 nix = {
     package = pkgs.nixFlakes;
@@ -46,6 +48,7 @@ nix = {
 users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
+    shell = pkgs.fish;
 };
 
 services.openssh.enable = true;
@@ -53,6 +56,8 @@ environment.shellAliases = {
       flake-rebuild = "sudo nixos-rebuild switch --flake .#NixWsl";
     };
 
+    programs.fish.enable = true;
+    environment.shells = [pkgs.fish];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
