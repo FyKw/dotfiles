@@ -18,6 +18,7 @@
             NixWsl = nixpkgs.lib.nixosSystem {
 		specialArgs = {
 		    username = "nixos";
+                    inherit inputs;
 		};
                 system = "x86_64-linux";
                 modules = [

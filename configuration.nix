@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, ... }: let
+{ config, lib, pkgs, username, inputs, ... }: let
 in {
 imports = [
   ./vpn.nix
@@ -40,6 +40,7 @@ wsl = {
   python3
   nodejs_20
   rustup
+  librespeed-cli
 ];
 nix = {
     package = pkgs.nixFlakes;
@@ -54,6 +55,9 @@ users.users.${username} = {
     shell = pkgs.fish;
 };
 
+
+    time.timeZone = "Europe/Berlin";
+
 services.openssh.enable = true;
 environment.shellAliases = {
       flake-rebuild = "sudo nixos-rebuild switch --flake .#NixWsl";
@@ -61,6 +65,19 @@ environment.shellAliases = {
 
     programs.fish.enable = true;
     environment.shells = [pkgs.fish];
+    programs.tmux = {
+        enable = true;
+        escapeTime = 0;
+        keyMode = "vi";
+        shortcut = "Space";
+        plugins = with pkgs.tmuxPlugins; [
+        vim-tmux-navigator
+        onedark-theme
+        ];
+    extraConfigBeforePlugins = ''
+    source-file ${inputs.self}/tmux.conf
+    '';
+    };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
