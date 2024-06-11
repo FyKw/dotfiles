@@ -30,18 +30,19 @@ wsl = {
 
   boot.tmp.cleanOnBoot = true;
   environment.systemPackages = with pkgs; [
-  git
-  neovim
-  unzip
-  gnumake
-  gcc
-  ripgrep
-  asciiquarium-transparent
-  python3
-  nodejs_20
-  rustup
-  librespeed-cli
-];
+    git
+    neovim
+    unzip
+    gnumake
+    gcc
+    ripgrep
+    asciiquarium-transparent
+    python3
+    nodejs_20
+    rustup
+    librespeed-cli
+    (import ./win32yank.nix { inherit pkgs; })
+  ];
 nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
