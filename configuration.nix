@@ -37,6 +37,9 @@ wsl = {
   gcc
   ripgrep
   asciiquarium-transparent
+  python3
+  nodejs_20
+  rustup
 ];
 nix = {
     package = pkgs.nixFlakes;
