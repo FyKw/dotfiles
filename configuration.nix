@@ -43,7 +43,6 @@ wsl = {
     nodejs_20
     rustup
     librespeed-cli
-    git-credential-manager
     (import ./win32yank.nix { inherit pkgs; })
   ];
 nix = {
