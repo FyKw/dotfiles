@@ -4,6 +4,8 @@ imports = [
   ./vpn.nix
   ./docker.nix
   ./neovim
+  ./fish
+
 ];
 wsl = {
         enable = true;
@@ -25,8 +27,8 @@ wsl = {
         imports = [
             ./home.nix
         ];
-        home.sessionVariables.SHELL = "etc/profiles/per-user/${username}/bin/fish";
     };
+  home-manager.backupFileExtension = "hm-old";
 
   boot.tmp.cleanOnBoot = true;
   environment.systemPackages = with pkgs; [
@@ -53,7 +55,6 @@ nix = {
 users.users.${username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
-    shell = pkgs.fish;
 };
 
 
@@ -64,8 +65,6 @@ environment.shellAliases = {
       flake-rebuild = "sudo nixos-rebuild switch --flake .#NixWsl";
     };
 
-    programs.fish.enable = true;
-    environment.shells = [pkgs.fish];
     programs.tmux = {
         enable = true;
         escapeTime = 0;
