@@ -61,6 +61,7 @@ users.users.${username} = {
     time.timeZone = "Europe/Berlin";
 
 services.openssh.enable = true;
+programs.ssh.startAgent = true;
 environment.shellAliases = {
       flake-rebuild = "sudo nixos-rebuild switch --flake .#NixWsl";
     };
