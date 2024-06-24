@@ -5,6 +5,7 @@ imports = [
   ./docker.nix
   ./neovim
   ./fish
+  ./aliases.nix
 
 ];
 wsl = {
@@ -62,9 +63,6 @@ users.users.${username} = {
 
 services.openssh.enable = true;
 programs.ssh.startAgent = true;
-environment.shellAliases = {
-      flake-rebuild = "sudo nixos-rebuild switch --flake .#NixWsl";
-    };
 
     programs.tmux = {
         enable = true;
