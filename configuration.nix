@@ -44,6 +44,7 @@ wsl = {
     nodejs_20
     rustup
     librespeed-cli
+    exiv2
     (import ./win32yank.nix { inherit pkgs; })
   ];
 nix = {
@@ -69,12 +70,13 @@ programs.ssh.startAgent = true;
         escapeTime = 0;
         keyMode = "vi";
         shortcut = "Space";
+        secureSocket = false;
         plugins = with pkgs.tmuxPlugins; [
-        vim-tmux-navigator
-        onedark-theme
+            vim-tmux-navigator
+            onedark-theme
         ];
     extraConfigBeforePlugins = ''
-    source-file ${inputs.self}/tmux.conf
+    source-file /home/nixos/.dotfiles/tmux.conf
     '';
     };
 
