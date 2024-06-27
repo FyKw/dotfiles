@@ -2,6 +2,9 @@
 users.users.${username} = {
     shell = pkgs.fish;
 };
+    imports = [
+        inputs.nix-index-database.nixosModules.nix-index
+        ];
     programs.fish.enable = true;
     environment.shells = [pkgs.fish];
 
@@ -9,6 +12,10 @@ users.users.${username} = {
         starship
         zoxide
 ];
+        programs.nix-index.enable = true;
+        programs.nix-index-database.comma.enable = true;
+        programs.command-not-found.enable = false; # nix-index handles this
+
     home-manager.users.${username} = { config, ... }: {
        home.sessionVariables.SHELL = "etc/profiles/per-user/${username}/bin/fish";
         xdg.configFile."fish/config.fish" = {

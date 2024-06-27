@@ -11,6 +11,11 @@
             url = "github:nix-community/home-manager/release-24.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+                nix-index-database = {
+            url = "github:nix-community/nix-index-database?rev=4ac3639cebb6286f1a68d015b80e9e0c6c869ce6";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
  
     outputs = inputs@{ self, nixpkgs, nixos-wsl, ... }: {
