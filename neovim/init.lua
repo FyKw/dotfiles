@@ -351,7 +351,7 @@ require('lazy').setup({
               show_all_buffers = true,
               sort_lastused = true,
               theme = "dropdown",
-              previewer = false,
+              previewer = true,
               mappings = {
                 i = {
                   ["<c-d>"] = "delete_buffer",
