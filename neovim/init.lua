@@ -346,7 +346,19 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          buffers = {
+              show_all_buffers = true,
+              sort_lastused = true,
+              theme = "dropdown",
+              previewer = false,
+              mappings = {
+                i = {
+                  ["<c-d>"] = "delete_buffer",
+                }
+              }
+            }
+       },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
