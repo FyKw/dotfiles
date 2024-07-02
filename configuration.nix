@@ -79,7 +79,12 @@ programs.ssh.startAgent = true;
     source-file /home/nixos/.dotfiles/tmux.conf
     '';
     };
-
+    stylix = {
+        enable = true;
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+        image = ./other/wallpaper.png;
+        polarity = "dark";
+    };
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave

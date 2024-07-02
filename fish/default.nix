@@ -5,7 +5,14 @@ users.users.${username} = {
     imports = [
         inputs.nix-index-database.nixosModules.nix-index
         ];
-    programs.fish.enable = true;
+
+    programs.fish = {
+        enable = true;
+        interactiveShellInit = /*fish*/''
+            source /home/${username}/.dotfiles/fish/config.fish
+        '';
+    };
+    stylix.targets.fish.enable = false;
     environment.shells = [pkgs.fish];
 
     environment.systemPackages = with pkgs;[
@@ -18,9 +25,6 @@ users.users.${username} = {
 
     home-manager.users.${username} = { config, ... }: {
        home.sessionVariables.SHELL = "etc/profiles/per-user/${username}/bin/fish";
-        xdg.configFile."fish/config.fish" = {
-	    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/fish/config.fish";
-	};
     };
 
     environment.sessionVariables.STARSHIP_CONFIG = "${inputs.self}/fish/starship.toml";

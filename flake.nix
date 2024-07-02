@@ -11,8 +11,9 @@
             url = "github:nix-community/home-manager/release-24.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        stylix.url = "github:danth/stylix";
 
-                nix-index-database = {
+        nix-index-database = {
             url = "github:nix-community/nix-index-database?rev=4ac3639cebb6286f1a68d015b80e9e0c6c869ce6";
             inputs.nixpkgs.follows = "nixpkgs";
         };
@@ -30,6 +31,7 @@
                     ./configuration.nix
                     nixos-wsl.nixosModules.wsl
 		    inputs.home-manager.nixosModules.home-manager
+                    inputs.stylix.nixosModules.stylix
                 ];
             };
         };
