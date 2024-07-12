@@ -3,4 +3,5 @@ if status is-interactive
     set -U fish_greeting "Moin"
     # use starship prompt
     starship init fish | source
+    set -gx EDITOR nvim
 end
