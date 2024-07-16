@@ -45,6 +45,7 @@ wsl = {
     rustup
     librespeed-cli
     exiv2
+    poetry
     (import ./win32yank.nix { inherit pkgs; })
   ];
 nix = {
