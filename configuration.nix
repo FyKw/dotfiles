@@ -48,7 +48,16 @@ wsl = {
     awscli2
     poetry
     (import ./win32yank.nix { inherit pkgs; })
-  ];
+    # (pkgs.writeShellScriptBin "vim-focus" ''
+    #     pane_tty=$1
+    #     pipenv_pid=$(pgrep -t ''${pane_tty/\/dev\/} .poetry-wrapped)
+    #     if [[ $? == 0 ]]; then
+    #       ps -o state=,comm= -p $(${pkgs.pstree}/bin/pstree -p $pipenv_pid | grep -Po '\(\d+\)' | tr -d '()')
+    #     else
+    #       ps -o state=,comm= -t $pane_tty
+    #     fi | grep -qP '^[^TXZ] (view|nvim)$'
+          # '')
+         ] ;
 nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
