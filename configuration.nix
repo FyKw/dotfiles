@@ -47,6 +47,7 @@ wsl = {
     exiv2
     awscli2
     poetry
+    git-lfs
     (import ./win32yank.nix { inherit pkgs; })
     # (pkgs.writeShellScriptBin "vim-focus" ''
     #     pane_tty=$1
