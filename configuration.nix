@@ -63,7 +63,9 @@ nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
         experimental-features = nix-command flakes
+        !include /home/${username}/.nix.conf
     '';
+
 };
 
 users.users.${username} = {
