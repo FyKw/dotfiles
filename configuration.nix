@@ -40,7 +40,7 @@ wsl = {
     gcc
     ripgrep
     asciiquarium-transparent
-    python3
+    # python311Full
     nodejs_20
     rustup
     librespeed-cli
