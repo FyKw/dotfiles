@@ -1,11 +1,13 @@
+
 { config, lib, pkgs, username, inputs, ... }: let
 in {
+
 imports = [
-  ./vpn.nix
-  ./docker.nix
-  ./neovim
-  ./fish
-  ./aliases.nix
+  ../../vpn.nix
+  ../../docker.nix
+  ../../neovim
+  ../../fish
+  ../../aliases.nix
 
 ];
 wsl = {
@@ -26,7 +28,7 @@ wsl = {
 ];
   home-manager.users.${username} = {
         imports = [
-            ./home.nix
+            ../../home.nix
         ];
     };
   home-manager.backupFileExtension = "hm-old";
@@ -48,7 +50,7 @@ wsl = {
     awscli2
     poetry
     git-lfs
-    (import ./win32yank.nix { inherit pkgs; })
+    (import ../../win32yank.nix { inherit pkgs; })
     # (pkgs.writeShellScriptBin "vim-focus" ''
     #     pane_tty=$1
     #     pipenv_pid=$(pgrep -t ''${pane_tty/\/dev\/} .poetry-wrapped)
@@ -96,7 +98,7 @@ programs.ssh.startAgent = true;
     stylix = {
         enable = true;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-        image = ./other/wallpaper.png;
+        image = ../../other/wallpaper.png;
         polarity = "dark";
     };
   # This value determines the NixOS release from which the default

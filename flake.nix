@@ -23,21 +23,20 @@
             inputs.home-manager.follows = "home-manager";
         };
     };
- 
-    outputs = inputs@{ self, nixpkgs, nixos-wsl, ... }: {
-        nixosConfigurations = {
-            NixWsl = nixpkgs.lib.nixosSystem {
-		specialArgs = {
-		    username = "nixos";
-                    inherit inputs;
-		};
-                system = "x86_64-linux";
-                modules = [
-                    ./configuration.nix
-                    nixos-wsl.nixosModules.wsl
-		    inputs.home-manager.nixosModules.home-manager
-                    inputs.stylix.nixosModules.stylix
-                ];
+  outputs = inputs: {
+        nixosConfigurations = inputs.modulix.lib.mkHosts {
+            inherit inputs;
+            # modulesPath = ./modules-directory; # optional
+            sharedConfig = {
+                    imports = [
+                        inputs.nixos-wsl.nixosModules.wsl
+                        inputs.home-manager.nixosModules.home-manager
+                        inputs.stylix.nixosModules.stylix
+                    ];
+                };
+            specialArgs = {
+                # hostname = "nixos";
+                # put in your specialArgs like above
             };
         };
     };
