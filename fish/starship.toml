@@ -1,3 +1,3 @@
 "$schema" = "https://starship.rs/config-schema.json"
-
+command_timeout = 1000
 format = "$directory$git_branch$git_status$nix_shell$character"
