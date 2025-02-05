@@ -17,6 +17,11 @@
             url = "github:nix-community/nix-index-database?rev=4ac3639cebb6286f1a68d015b80e9e0c6c869ce6";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        modulix = {
+            url = "github:anders130/modulix";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.home-manager.follows = "home-manager";
+        };
     };
  
     outputs = inputs@{ self, nixpkgs, nixos-wsl, ... }: {

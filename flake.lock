@@ -221,6 +221,28 @@
         "type": "github"
       }
     },
+    "haumea": {
+      "inputs": {
+        "nixpkgs": [
+          "modulix",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1685133229,
+        "narHash": "sha256-FePm/Gi9PBSNwiDFq3N+DWdfxFq0UKsVVTJS3cQPn94=",
+        "owner": "nix-community",
+        "repo": "haumea",
+        "rev": "34dd58385092a23018748b50f9b23de6266dffc2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "v0.2.2",
+        "repo": "haumea",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -261,6 +283,30 @@
         "owner": "nix-community",
         "ref": "release-24.11",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "modulix": {
+      "inputs": {
+        "haumea": "haumea",
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1738747179,
+        "narHash": "sha256-tILQMWJ1XAvKfcLl10dppUGJzHdFDgnyr++T+Wqb4K8=",
+        "owner": "anders130",
+        "repo": "modulix",
+        "rev": "3fccfbd30f4b394052dbec2809076f76cfc69936",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anders130",
+        "repo": "modulix",
         "type": "github"
       }
     },
@@ -341,6 +387,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "modulix": "modulix",
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
