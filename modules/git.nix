@@ -1,5 +1,6 @@
+{ username, ... }:
 {
-  programs.git = {
+home-manager.users.${username}.programs.git = {
     enable = true;
     userName  = "FynnKw";
     userEmail = "Fynn.Kwast@btc-ag.com";
@@ -34,5 +35,4 @@
         lg = "log --pretty=oneline --decorate --graph --abbrev-commit -30";
     };
   };
-  home.stateVersion = "24.05";
-}
+  }
