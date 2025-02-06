@@ -20,8 +20,11 @@
         programs.fish = {
             enable = true;
             interactiveShellInit = ''
-                echo ${cfg.greeting}
-                source $HOME/.config/fish/extraConfig.fish
+                set -U fish_greeting ${cfg.greeting}
+                zoxide init fish | source
+                # use starship prompt
+                starship init fish | source
+                set -gx EDITOR nvim
             '';
         };
         stylix.targets.fish.enable = false;
@@ -37,9 +40,9 @@
 
         home-manager.users.${username} = {config, ...}: {
             home.sessionVariables.SHELL = "etc/profiles/per-user/${username}/bin/fish";
-            xdg.configFile."fish/extraConfig.fish" = lib.mkSymlink ./config.fish;
+            xdg.configFile."starship/starship.toml" = lib.mkSymlink ./starship.toml;
         };
 
-        environment.sessionVariables.STARSHIP_CONFIG = "${inputs.self}/fish/starship.toml";
+        environment.sessionVariables.STARSHIP_CONFIG = "$HOME/.config/starship/starship.toml";
     };
 }
