@@ -9,6 +9,7 @@ $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
 $nix_shell\
 [ ](fg:#86BBD8 bg:#282c34)\
+$line_break
 """
 [directory]
 style = "bg:#9A348E fg:#FFFFFF"
@@ -29,3 +30,6 @@ format = '[$all_status$ahead_behind ]($style)'
 symbol = ""
 style = "bg:#86BBD8 fg:#FFFFFF"
 format = '[ $symbol $shell ]($style)'
+
+[line_break]
+disabled = true
