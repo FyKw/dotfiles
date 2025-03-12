@@ -28,6 +28,7 @@
             inherit inputs;
             flakePath = "/home/gvoo/.dotfiles";
             modulesPath = ./modules;
+            helpers = inputs.home-manager.lib;
             sharedConfig = {
                 imports = [
                     inputs.nixos-wsl.nixosModules.wsl

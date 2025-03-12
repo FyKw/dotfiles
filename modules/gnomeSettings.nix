@@ -1,10 +1,11 @@
-{username, ...}:{
+{username, lib, ...}:{
     home-manager.users.${username}.dconf.settings = {
         "org/gnome/desktop/peripherals/keyboard" = {
             numlock-state = true;
-            delay = "uint32 160";
-            repreat-interval = "uint32 30";
+            delay = lib.hm.gvariant.mkUint32 150;
+            repreat-interval = lib.hm.gvariant.mkUint32 30;
         };
+
         "org/gnome/desktop/wm/keybindings" = {
             close = ["<Super>c"];
             toggle-fullscreen = ["<Super>Return"];
