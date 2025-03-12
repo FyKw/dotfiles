@@ -13,6 +13,8 @@
   modules.kitty.enable = true;
   modules.stylix.enable = true;
   modules.tmux.enable = true;
+  modules.kanata.enable = true;
+  modules.gnomeSettings.enable = true;
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
