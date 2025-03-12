@@ -9,6 +9,10 @@
   modules.fish.enable = true;
   modules.git.enable = true;
   modules.neovim.enable = true;
+  modules.aliases.enable = true;
+  modules.kitty.enable = true;
+  modules.stylix.enable = true;
+  modules.tmux.enable = true;
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
