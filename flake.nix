@@ -26,7 +26,7 @@
     outputs = inputs: {
         nixosConfigurations = inputs.modulix.lib.mkHosts {
             inherit inputs;
-            flakePath = "/home/nixos/.dotfiles";
+            flakePath = "/home/gvoo/.dotfiles";
             modulesPath = ./modules;
             sharedConfig = {
                 imports = [
