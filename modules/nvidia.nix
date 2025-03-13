@@ -1,9 +1,9 @@
 {pkgs, ...}: {
+    services.xserver.videoDrivers = ["nvidia"]; # IMMPORTANT
 
     hardware = {
         nvidia = {
-            open = false; # if i want to use the open source drivers
-
+            open = true; # if i want to use the open source drivers
         };
 
         graphics = {
