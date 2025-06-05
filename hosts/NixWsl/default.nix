@@ -25,7 +25,7 @@ in {
             network.generateHosts = false;
             network.generateResolvConf = false; # business internet fix
         };
-        defaultUser = "nixos";
+        defaultUser = "Gvoo";
         startMenuLaunchers = true;
     };
 

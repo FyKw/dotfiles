@@ -1,5 +1,5 @@
 {
-    description = "A very basic flake with nodejs";
+    description = "some flake for me";
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
