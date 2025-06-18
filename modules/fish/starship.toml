@@ -1,9 +1,9 @@
 "$schema" = "https://starship.rs/config-schema.json"
 command_timeout = 1000
 format = """
-[](#9A348E)\
+[](#d4f97e)\
 $directory\
-[](bg:#FCA17D fg:#9A348E)\
+[](bg:#FCA17D fg:#d4f97e)\
 $git_branch\
 $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
@@ -12,7 +12,7 @@ $nix_shell\
 $line_break
 """
 [directory]
-style = "bg:#9A348E fg:#FFFFFF"
+style = "bg:#d4f97e fg:#000000"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
