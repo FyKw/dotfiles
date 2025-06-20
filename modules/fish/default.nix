@@ -25,6 +25,11 @@
                 # use starship prompt
                 starship init fish | source
                 set -gx EDITOR nvim
+
+                # Autostart tmux if not already in one
+                if not set -q TMUX
+                    exec tmux
+                end
             '';
         };
         stylix.targets.fish.enable = false;
