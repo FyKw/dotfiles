@@ -71,6 +71,10 @@
     services.xserver.displayManager.gdm.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
 
+    # Configure numlockx to be enabled by default on startup
+    services.xserver.displayManager.setupCommands = ''
+        ${pkgs.numlockx}/bin/numlockx on
+    '';
     # Configure keymap in X11
     services.xserver.xkb = {
         layout = "de";
@@ -123,6 +127,7 @@
     environment.systemPackages = with pkgs; [
         pavucontrol
         vesktop
+        numlockx
         #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
         #  wget
     ];
