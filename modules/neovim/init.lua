@@ -835,7 +835,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'rust', 'vim', 'vimdoc', 'nix', 'python', 'tmux', 'json', 'markdown', 'yaml', 'xml', 'asm'},
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'rust', 'vim', 'vimdoc', 'nix', 'python', 'tmux', 'json', 'markdown', 'yaml', 'xml', 'asm', 'latex'},
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {

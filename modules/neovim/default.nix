@@ -4,5 +4,6 @@
     	neovim
 	gcc
 	ripgrep
+	tree-sitter
     ];
 }
