@@ -72,6 +72,7 @@ in {
             !include /home/${username}/.nix.conf
         '';
     };
+    nixpkgs.config.allowUnfree = true;
 
     users.users.${username} = {
         isNormalUser = true;
